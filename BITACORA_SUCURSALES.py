@@ -67,7 +67,7 @@ if pagina == "BITACORA SUCURSALES":
             estatus = st.selectbox("Estatus",["Atendido","Cerrado","Pendiente"])
             fecha_solucion = st.date_input("Fecha de solución", fecha_actual)
             detalle_solucion = st.text_area("Detalle solución")
-            articulo = st.selectbox("Especial", ["SALA","COMEDOR","TELEFONO","MOTO","OTROS"])
+            articulo = st.selectbox("Articulo", ["SALA","COMEDOR","TELEFONO","MOTO","OTROS"])
 
 
     
@@ -133,11 +133,11 @@ if pagina == "BITACORA SUCURSALES":
         conn = get_connection()
         if conn:
             try:
-                query = text("SELECT Registro AS '#Registro', * FROM BITACORA_SUCURSAL WHERE FECHA_REPORTE = :fecha_reporte ORDER BY Registro ASC")
+                query = text("SELECT Registro AS '#Registro', * FROM BITACORA_SUCURSALES WHERE FECHA_REPORTE = :fecha_reporte ORDER BY Registro ASC")
                 params = {"fecha_reporte": filtro_fecha.strftime('%Y-%m-%d')}
 
                 if filtro_ejecutivo != "Todos":
-                    query = text("SELECT Registro AS '#Registro', * FROM BITACORA_SUCURSAL WHERE FECHA = :fecha_reporte AND EJECUTIVO = :ejecutivo ORDER BY Registro ASC")
+                    query = text("SELECT Registro AS '#Registro', * FROM BITACORA_SUCURSALES WHERE FECHA = :fecha_reporte AND EJECUTIVO = :ejecutivo ORDER BY Registro ASC")
                     params["ejecutivo"] = filtro_ejecutivo
 
                 df = pd.read_sql(query, conn, params=params)

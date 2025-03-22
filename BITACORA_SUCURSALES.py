@@ -159,7 +159,7 @@ if pagina == "BITACORA SUCURSALES":
     st.subheader("✏️ Editar un registro")
 
     if not df_records.empty:
-        registros_disponibles = df_records["#Registro"].tolist()
+        registros_disponibles = df_records["#Registro"].tolist()  
         registro_seleccionado = st.selectbox("Seleccione el número de registro a editar:", registros_disponibles)
 
         # Lista de columnas editables
@@ -175,7 +175,7 @@ if pagina == "BITACORA SUCURSALES":
             conn = get_connection()
             if conn:
                 try:
-                    update_query = text(f"UPDATE BITACORA_SUCURSALES SET {campo_seleccionado} = :nuevo_valor WHERE Registro = :registro")
+                    update_query = text(f"UPDATE BITACORA_SUCURSALES SET {campo_seleccionado} = :nuevo_valor WHERE ID_REPORTE = :registro")
                     conn.execute(update_query, {"nuevo_valor": nuevo_valor, "registro": registro_seleccionado})
                     conn.commit()
                     st.success(f"Registro #{registro_seleccionado} actualizado exitosamente.")

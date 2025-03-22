@@ -83,7 +83,7 @@ if pagina == "BITACORA SUCURSALES":
                     INSERT INTO BITACORA_SUCURSALES (
                         FECHA_REPORTE, NOMBRE_CLIENTE, NUM_CLIENTE, NUM_TICKET_REPORTE,
                         TEL_CLIENTE, SUCURSAL_VENTA, SUCURSAL_REPORTE, QUIEN_REPORTA,
-                        FACTURA_REMISION, ARTICULO, DETALLE_REPORTE, QUIEN_ATENDIO
+                        FACTURA_REMISION, ARTICULO, DETALLE_REPORTE, QUIEN_ATENDIO,
                         ESTATUS, FECHA_SOLUCION, DETALLE_SOLUCION
                     ) 
                     VALUES (:fecha_reporte,:nombre_cliente, :num_cliente, :num_ticket_reporte,

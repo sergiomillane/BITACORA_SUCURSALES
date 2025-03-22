@@ -133,11 +133,11 @@ if pagina == "BITACORA SUCURSALES":
         conn = get_connection()
         if conn:
             try:
-                query = text("SELECT Registro AS '#Registro', * FROM BITACORA_SUCURSALES WHERE FECHA_REPORTE = :fecha_reporte ORDER BY Registro ASC")
+                query = text("SELECT ID_REPORTE AS '#Registro', * FROM BITACORA_SUCURSALES WHERE FECHA_REPORTE = :fecha_reporte ORDER BY ID_REPORTE ASC")
                 params = {"fecha_reporte": filtro_fecha.strftime('%Y-%m-%d')}
 
                 if filtro_ejecutivo != "Todos":
-                    query = text("SELECT Registro AS '#Registro', * FROM BITACORA_SUCURSALES WHERE FECHA = :fecha_reporte AND EJECUTIVO = :ejecutivo ORDER BY Registro ASC")
+                    query = text("SELECT ID_REPORTE AS '#Registro', * FROM BITACORA_SUCURSALES WHERE FECHA_REPORTE = :fecha_reporte AND QUIEN_REPORTA = :ejecutivo ORDER BY ID_REPORTE ASC")
                     params["ejecutivo"] = filtro_ejecutivo
 
                 df = pd.read_sql(query, conn, params=params)
@@ -166,7 +166,7 @@ if pagina == "BITACORA SUCURSALES":
         # Lista de columnas editables
         columnas_editables = ["FECHA_REPORTE", "NOMBRE_CLIENTE", "NUM_CLIENTE", "NUM_TICKET_REPORTE",
                         "TEL_CLIENTE", "SUCURSAL_VENTA", "SUCURSAL_REPORTE", "QUIEN_REPORTA",
-                        "FACTURA_REMISION", "ARTICULO", "DETALLE_REPORTE", "QUIEN_ATENDIO"
+                        "FACTURA_REMISION", "ARTICULO", "DETALLE_REPORTE", "QUIEN_ATENDIO",
                         "ESTATUS", "FECHA_SOLUCION", "DETALLE_SOLUCION"]
 
         campo_seleccionado = st.selectbox("Seleccione el campo a editar:", columnas_editables)

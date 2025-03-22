@@ -47,25 +47,25 @@ if pagina == "BITACORA SUCURSALES":
         col1, col2, col3 = st.columns(3)
 
         with col1:
-        fecha_reporte = st.date_input("Fecha reporte", fecha_actual)
-        nombre_cliente = st.text_input("Nombre del cliente")
-        num_cliente = st.number_input("Número de cliente", step=1, format="%d")
-        tel_cliente = st.number_input("Número telefónico", step=1, format="%d")
+            fecha_reporte = st.date_input("Fecha reporte", fecha_actual)
+            nombre_cliente = st.text_input("Nombre del cliente")
+            num_cliente = st.number_input("Número de cliente", step=1, format="%d")
+            tel_cliente = st.number_input("Número telefónico", step=1, format="%d")
 
-    with col2:
-        sucursal_venta = st.selectbox("Sucursal de venta", list(range(1, 101)))
-        sucursal_reporte = st.selectbox("Sucursal de reporte", list(range(1, 101)))
-        quien_reporta = st.selectbox("Quien reporta", ["Ejecutivo 1", "Ejecutivo 2"])
-        detalle_reporte = st.text_area("Detalle reporte")
-        quien_atendio = st.selectbox("Quien atendió", ["Ejecutivo 1", "Ejecutivo 2"])
+        with col2:
+            sucursal_venta = st.selectbox("Sucursal de venta", list(range(1, 101)))
+            sucursal_reporte = st.selectbox("Sucursal de reporte", list(range(1, 101)))
+            quien_reporta = st.selectbox("Quien reporta", ["Ejecutivo 1", "Ejecutivo 2"])
+            detalle_reporte = st.text_area("Detalle reporte")
+            quien_atendio = st.selectbox("Quien atendió", ["Ejecutivo 1", "Ejecutivo 2"])
 
-    with col3:
-        num_ticket_reporte = st.number_input("Número ticket de reporte", step=1, format="%d")
-        factura_remision = st.text_input("Factura / Remisión")
-        estatus = st.selectbox("Estatus", ["Atendido", "Cerrado", "Pendiente"])
-        fecha_solucion = st.date_input("Fecha de solución", fecha_actual)
-        detalle_solucion = st.text_area("Detalle solución")
-        articulo = st.selectbox("Artículo", ["SALA", "COMEDOR", "TELEFONO", "MOTO", "OTROS"])
+        with col3:
+            num_ticket_reporte = st.number_input("Número ticket de reporte", step=1, format="%d")
+            factura_remision = st.text_input("Factura / Remisión")
+            estatus = st.selectbox("Estatus", ["Atendido", "Cerrado", "Pendiente"])
+            fecha_solucion = st.date_input("Fecha de solución", fecha_actual)
+            detalle_solucion = st.text_area("Detalle solución")
+            articulo = st.selectbox("Artículo", ["SALA", "COMEDOR", "TELEFONO", "MOTO", "OTROS"])
 
 
 
